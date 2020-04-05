@@ -1,6 +1,22 @@
+body{
+background-color: #f0f0f5;
+
+}
 .detalhesEvento{
 box-shadow: 0px 0px 5px grey;
-paddin-top:20px;
+paddin-top:100px;
 padding-left: 20px;
 margin-bottom:60px;
+}
+
+.container-principal{
+    margin-top: 100px;
+    width: 500px;
+    height: 500px;
+
+    align-content: center;
+    background-color: #fff;
+    box-shadow: 0 0 0.1em black;
+    border-radius: 20px;
+    padding-top: 80px;
 }

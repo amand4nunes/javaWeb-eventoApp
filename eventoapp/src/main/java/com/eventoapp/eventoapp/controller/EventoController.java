@@ -15,11 +15,13 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.stream.Stream;
 
 @Controller
 public class EventoController {
     @Autowired
     private EventoRepository er;
+    @Autowired
     private ConvidadoRepository cr;
 
     @RequestMapping(value = "/cadastrarEvento", method = RequestMethod.GET)
@@ -44,12 +46,10 @@ public class EventoController {
 
     @RequestMapping("/eventos")
     public ModelAndView listaEventos() {
-        /*qual sera apagina que vai renderizar no caso é a index*/
-        ModelAndView mv = new ModelAndView("index");
-        /*ele busca uma lista de eventos*/
-        Iterable<Evento> eventos = er.findAll();
-        /*faz aparecer la na pagina que esta sendo chamada, na view, o primeiro parametro é o que voce colocou la no html*/
-        mv.addObject("eventos", eventos);
+
+        ModelAndView mv = new ModelAndView("index");  /*qual sera apagina que vai renderizar no caso é a index*/
+        Iterable<Evento> eventos = er.findAll();                /*ele busca uma lista de eventos*/
+        mv.addObject("eventos", eventos);          /*faz aparecer la na pagina que esta sendo chamada, na view, o primeiro parametro é o que voce colocou la no html*/
         return mv;
     }
     @RequestMapping(value="/{codigo}", method=RequestMethod.GET)
@@ -79,9 +79,13 @@ public class EventoController {
         Evento evento = er.findByCodigo(codigo);
         convidado.setEvento(evento);
         cr.save(convidado);
-        attributes.addFlashAttribute("mensagem", "Convidado adicionado com sucesso!");
+        attributes.addFlashAttribute("mensagem", "Convidad adicionado com sucesso!");
         return "redirect:/{codigo}";
     }
+
+
+
+
     @RequestMapping("/deletarConvidado")
     public String deletarConvidado(String rg){
         Convidado convidado = cr.findByRg(rg);
@@ -90,6 +94,7 @@ public class EventoController {
         long codigoLong = evento.getCodigo();
         String codigo = "" + codigoLong;
         return "redirect: /" + codigo;
+
     }
 
 }

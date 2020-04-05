@@ -28,22 +28,23 @@
 </header>
 <th:block th:includ="mensagemValidacao"></th:block>
 
-<form class="container" method="post">
+    <form class="container" method="post">
 
-    Nome:<input type="text" value="" name="nome"/><br>
-    <div class="row">
-        <div class="input-field col s6">
-            Local: <input type="text" value="" name="local"/><br>
+        Nome:<input type="text" value="" name="nome"/><br>
+        <div class="row">
+            <div class="input-field col s6">
+                Local: <input type="text" value="" name="local"/><br>
+            </div>
+            <div class="input-field col s3">
+                Data: <input type="date" value="" name="data"/><br>
+            </div>
+            <div class="input-field col s3">
+                Horario: <input type="text" value="" name="horario"/><br>
+            </div>
         </div>
-        <div class="input-field col s3">
-            Data: <input type="date" value="" name="data"/><br>
-        </div>
-        <div class="input-field col s3">
-            Horario: <input type="text" value="" name="horario"/><br>
-        </div>
-    </div>
-    <button class="waves-effect waves-light btn" type="submit">Salvar</button>
-</form>
+        <button class="waves-effect waves-light btn" type="submit">Salvar</button>
+    </form>
+</div>
 <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 
 </body>
